@@ -1,10 +1,15 @@
-/* Basic Style */
+/* Global Styles */
 body {
     background-color: #f8f8f8;
     color: #333;
     font-family: Lato, sans-serif;
 }
 
+input, button {
+    outline: none;
+}
+
+/* Header */
 .todo-header__info {
     width: 500px;
     margin: 0 auto;
@@ -26,10 +31,16 @@ body {
     }
 }
 
+/* Main */
 .todo-main {
     display: block;
     width: 500px;
     margin: 0 auto;
+}
+
+/* Add Item Section */
+.todo-add-item__input-wrapper {
+    display: flex;
 }
 
 .todo-add-item__input {
@@ -38,10 +49,7 @@ body {
     flex-grow: 1;
 }
 
-.todo-add-item__input-wrapper {
-    display: flex;
-}
-
+/* Task List */
 .todo-list__items,
 .todo-list__heading {
     margin: 0;
@@ -53,6 +61,17 @@ body {
     list-style: none;
 }
 
-input, button {
-    outline: none;
+/* Buttons */
+button {
+    background: none;
+    border: 0;
+    color: #888;
+    font-size: 15px;
+    width: 60px;
+    font-family: Lato, sans-serif;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #3a3a3a;
 }
