@@ -1,77 +1,69 @@
-/* Global Styles */
-body {
-    background-color: #f8f8f8;
-    color: #333;
-    font-family: Lato, sans-serif;
-}
-
-input, button {
-    outline: none;
-}
-
-/* Header */
-.todo-header__info {
-    width: 500px;
-    margin: 0 auto;
-    display: block;
-    text-align: right;
-}
-
-.todo-header__info img {
-    width: 100%;
-}
-
-.todo-header__more-info {
-    font-family: fantasy, cursive;
-}
-
-@media (max-width: 768px) {
-    .todo-header__info {
-        text-align: center;
-    }
-}
-
-/* Main */
-.todo-main {
-    display: block;
-    width: 500px;
-    margin: 0 auto;
-}
-
 /* Add Item Section */
-.todo-add-item__input-wrapper {
-    display: flex;
+.todo-add-item__label {
+    display: block;
+    margin: 0 0 20px;
 }
 
-.todo-add-item__input {
-    width: 56%;
-    display: inline-block;
-    flex-grow: 1;
+#new-task.todo-add-item__input {
+    width: 318px;
 }
 
 /* Task List */
-.todo-list__items,
-.todo-list__heading {
-    margin: 0;
-    padding: 0;
+.todo-list__item {
+    overflow: hidden;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.todo-list__item,
-.todo-list__heading {
-    list-style: none;
+.todo-list__item > * {
+    vertical-align: middle;
 }
 
-/* Buttons */
-button {
-    background: none;
-    border: 0;
+.todo-list__checkbox {
+    margin: 0 10px;
+}
+
+.todo-list__task {
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    width: 226px;
+}
+
+.todo-list__edit-input {
+    width: 226px;
+}
+
+.todo-list__delete-button img {
+    height: 2em;
+    transform: rotateZ(45deg);
+    transition: transform 200ms ease-in;
+}
+
+.todo-list__delete-button img:hover {
+    transform: rotateZ(0);
+}
+
+/* Completed Tasks */
+.todo-list__items--completed .todo-list__task {
+    text-decoration: line-through;
     color: #888;
-    font-size: 15px;
-    width: 60px;
-    font-family: Lato, sans-serif;
-    cursor: pointer;
 }
 
-button:hover {
-    color: #3a3a3a;
+/* Edit Task */
+.todo-list__edit-input {
+    display: none;
+}
+
+.todo-list__item--edit-mode .todo-list__edit-input {
+    display: inline-block;
+    width: 224px;
+}
+
+.todo-list__item--edit-mode .todo-list__task {
+    display: none;
 }
