@@ -80,35 +80,17 @@ const deleteTask = function() {
 };
 
 //Mark task completed
-var taskCompleted=function(){
-    console.log("Complete Task...");
+const taskCompleted = function() {
+    completedTasksHolder.appendChild(this.parentNode);
+    bindTaskEvents(this.parentNode, taskIncomplete);
+};
 
-    //Append the task list item to the #completed-tasks
-    var listItem=this.parentNode;
-    completedTasksHolder.appendChild(listItem);
-    bindTaskEvents(listItem, taskIncomplete);
-
-}
-
-
-var taskIncomplete=function(){
-    console.log("Incomplete Task...");
-//Mark task as incomplete.
-    //When the checkbox is unchecked
-    //Append the task list item to the #incompleteTasks.
-    var listItem=this.parentNode;
-    incompleteTaskHolder.appendChild(listItem);
-    bindTaskEvents(listItem,taskCompleted);
-}
-
-
-
-var ajaxRequest=function(){
-    console.log("AJAX Request");
-}
+const taskIncomplete = function() {
+    incompleteTaskHolder.appendChild(this.parentNode);
+    bindTaskEvents(this.parentNode, taskCompleted);
+};
 
 //The glue to hold it all together.
-
 
 //Set the click handler to the addTask function.
 addButton.onclick=addTask;
