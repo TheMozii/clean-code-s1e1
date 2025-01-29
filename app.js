@@ -103,6 +103,8 @@ const bindTaskEvents = (taskListItem, checkBoxEventHandler) => {
     checkBox.onchange = checkBoxEventHandler;
 };
 
+addButton.addEventListener("click", addTask);
+
 //cycle over incompleteTaskHolder ul list items
 //for each list item
 for (var i=0; i<incompleteTaskHolder.children.length;i++){
