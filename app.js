@@ -75,16 +75,9 @@ const editTask = function() {
 };
 
 //Delete task.
-var deleteTask=function(){
-    console.log("Delete Task...");
-
-    var listItem=this.parentNode;
-    var ul=listItem.parentNode;
-    //Remove the parent list item from the ul.
-    ul.removeChild(listItem);
-
-}
-
+const deleteTask = function() {
+    this.parentNode.remove();
+};
 
 //Mark task completed
 var taskCompleted=function(){
