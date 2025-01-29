@@ -57,34 +57,22 @@ const addTask = () => {
 };
 
 //Edit an existing task.
-
-var editTask=function(){
-    console.log("Edit Task...");
-    console.log("Change 'edit' to 'save'");
-
-
-    var listItem=this.parentNode;
-
-    var editInput=listItem.querySelector('input[type=text]');
-    var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".edit");
-    var containsClass=listItem.classList.contains("editMode");
-    //If class of the parent is .editmode
-    if(containsClass){
-
-        //switch to .editmode
-        //label becomes the inputs value.
-        label.innerText=editInput.value;
-        editBtn.innerText="Edit";
-    }else{
-        editInput.value=label.innerText;
-        editBtn.innerText="Save";
+const editTask = function() {
+    const listItem = this.parentNode;
+    const editInput = listItem.querySelector(".todo-list__edit-input");
+    const label = listItem.querySelector(".todo-list__task");
+    const editBtn = listItem.querySelector(".todo-list__edit-button");
+    
+    if (listItem.classList.contains("todo-list__item--edit-mode")) {
+        label.innerText = editInput.value.trim() || label.innerText;
+        editBtn.innerText = "Edit";
+    } else {
+        editInput.value = label.innerText;
+        editBtn.innerText = "Save";
     }
 
-    //toggle .editmode on the parent.
-    listItem.classList.toggle("editMode");
+    listItem.classList.toggle("todo-list__item--edit-mode");
 };
-
 
 //Delete task.
 var deleteTask=function(){
