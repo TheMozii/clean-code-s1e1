@@ -16,6 +16,7 @@ const completedTasksHolder = document.getElementById("completed-tasks"); // comp
 //New task list item
 const createNewTaskElement = (taskString) => {
     const listItem = document.createElement("li");
+    listItem.classList.add("todo-list__item");
 
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
