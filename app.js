@@ -14,49 +14,37 @@ const incompleteTaskHolder = document.getElementById("incompleteTasks"); // ul o
 const completedTasksHolder = document.getElementById("completed-tasks"); // completed-tasks
 
 //New task list item
-var createNewTaskElement=function(taskString){
+const createNewTaskElement = (taskString) => {
+    const listItem = document.createElement("li");
 
-    var listItem=document.createElement("li");
+    const checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    checkBox.classList.add("todo-list__checkbox");
 
-    //input (checkbox)
-    var checkBox=document.createElement("input");//checkbx
-    //label
-    var label=document.createElement("label");//label
-    //input (text)
-    var editInput=document.createElement("input");//text
-    //button.edit
-    var editButton=document.createElement("button");//edit button
+    const label = document.createElement("label");
+    label.innerText = taskString;
+    label.classList.add("todo-list__task");
 
-    //button.delete
-    var deleteButton=document.createElement("button");//delete button
-    var deleteButtonImg=document.createElement("img");//delete button image
+    const editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.classList.add("todo-list__edit-input");
 
-    label.innerText=taskString;
-    label.className='task';
+    const editButton = document.createElement("button");
+    editButton.innerText = "Edit";
+    editButton.classList.add("todo-list__edit-button");
 
-    //Each elements, needs appending
-    checkBox.type="checkbox";
-    editInput.type="text";
-    editInput.className="task";
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("todo-list__delete-button");
 
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
-
-    deleteButton.className="delete";
-    deleteButtonImg.src='./remove.svg';
+    const deleteButtonImg = document.createElement("img");
+    deleteButtonImg.src = './remove.svg';
+    deleteButtonImg.alt = "Delete task";
+    
     deleteButton.appendChild(deleteButtonImg);
 
-
-    //and appending.
-    listItem.appendChild(checkBox);
-    listItem.appendChild(label);
-    listItem.appendChild(editInput);
-    listItem.appendChild(editButton);
-    listItem.appendChild(deleteButton);
+    listItem.append(checkBox, label, editInput, editButton, deleteButton);
     return listItem;
-}
-
-
+};
 
 var addTask=function(){
     console.log("Add Task...");
